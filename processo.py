@@ -7,4 +7,3 @@ class Processo:
         self.tempo_termino = 0
         self.tempo_turnaround = 0
         self.tempo_resposta = None
-
