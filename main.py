@@ -12,15 +12,13 @@ def fifo(processos, pular_espera):
         if tempo_atual < processo.tempo_chegada:
             tempo_atual = processo.tempo_chegada
 
-        if not processo.tempo_resposta:
-            processo.tempo_resposta = tempo_atual - processo.tempo_chegada
-            total_resposta += processo.tempo_resposta
-
-        processo.tempo_espera = tempo_atual - processo.tempo_chegada
         processo.tempo_termino = tempo_atual + processo.tempo_execucao
         processo.tempo_turnaround = processo.tempo_termino - processo.tempo_chegada
+        processo.tempo_espera = processo.tempo_turnaround - processo.tempo_execucao
+        processo.tempo_resposta = tempo_atual - processo.tempo_chegada
 
         total_espera += processo.tempo_espera
+        total_resposta += processo.tempo_resposta
         total_turnaround += processo.tempo_turnaround
 
         print(f"Processo {processo.nome}:")
