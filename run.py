@@ -11,9 +11,15 @@ parser = argparse.ArgumentParser(
     description=("Simulação do algoritimo de escalonamento de processos FIFO"),
     add_help=True,
 )
-parser.add_argument("--file", "-f")
 parser.add_argument(
-    "--skip", "-s", action=argparse.BooleanOptionalAction, default=False
+    "--file", "-f", help="Caminho do arquivo .csv que você deseja utilizar."
+)
+parser.add_argument(
+    "--skip",
+    "-s",
+    action=argparse.BooleanOptionalAction,
+    default=False,
+    help="Pula a espera real do tempo de execução dos procesos.",
 )
 
 args = parser.parse_args()
